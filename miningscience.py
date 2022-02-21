@@ -20,8 +20,6 @@ def mining_pubs(tipo):
     results = download_pubmed('Ecuador genomics') 
     
     
-    #-----------------------------------------------------------------------------------------------
-    
     id_list = results['IdList']                                                  #separamos ids    
     ids = ','.join(id_list)    
     Entrez.email = 'your.email@example.com'
