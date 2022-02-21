@@ -38,4 +38,10 @@ Memoria: 16384 MB RAM
 
 **Explicación de la data utilizada**
 
-En el ejercicio 1, no hubo el uso del agún tipo de data por ser un ejercicio de UNIX. En el ejercicio 2, no hubo el uso del agún tipo de data por ser un ejercicio de UNIX. En el ejercicio 3, no hubo el uso del agún tipo de data por ser una pregunta teórica. En el ejercicio 4, se usó la data de Saavedra2013 para el ejercicio 1.10.3. En el ejercicio 5, se usó la data de Buzzard2015_data.csv para el ejercicio 1.10.4. En el ejercicio 6, no hubo el uso del agún tipo de data por ser un ejercicio de UNIX. En el ejercicio 7, se usó Python. En el ejercicio 8, se usó Python.
+- En el ejercicio 1, . 
+- En el ejercicio 2, . 
+- En el ejercicio 3, . 
+- En el ejercicio 4, . 
+- En el ejercicio 5, . 
+- En el ejercicio 6, . 
+- En el ejercicio 7, . 
