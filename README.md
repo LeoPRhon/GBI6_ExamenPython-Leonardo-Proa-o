@@ -8,7 +8,7 @@
 
  FECHA: 20/02/2022
 
-**Características del computador**
+# Características del computador
 
 Nombre del equipo: DESKTOP-FTI0JOR
 
@@ -22,7 +22,7 @@ Procesador: Intel(R) Core(TM) i7-6700HQ CPU @ 2.60 GHz (8 CPUs)
 
 Memoria: 16384 MB RAM
 
-**Programas utilizados**
+# Programas utilizados
 - Visual Studio Code
 
 - Python 3.8.8
@@ -31,12 +31,12 @@ Memoria: 16384 MB RAM
 
 - Git Hub Desktop
 
-**Módulos y paquetes utilizados**
+# Módulos y paquetes utilizados
 
 - 
 - 
 
-**Explicación de la data utilizada**
+# Explicación de la data utilizada
 
 - En el ejercicio 1, . 
 - En el ejercicio 2, . 
