@@ -6,7 +6,7 @@
 
  GRUPO: 1
 
- FECHA: 13/01/2021
+ FECHA: 20/02/2022
 
 **Características del computador**
 
@@ -23,18 +23,18 @@ Procesador: Intel(R) Core(TM) i7-6700HQ CPU @ 2.60 GHz (8 CPUs)
 Memoria: 16384 MB RAM
 
 **Programas utilizados**
+- Visual Studio Code
 
-UNIX
+- Python 3.8.8
 
-Git Bash
+- Jupyter Notebook
 
-Visual Studio Code
+- Git Hub Desktop
 
-Python
+**Módulos y paquetes utilizados**
 
-Jupyter Notebook
-
-Git Hub Desktop
+- 
+- 
 
 **Explicación de la data utilizada**
 
