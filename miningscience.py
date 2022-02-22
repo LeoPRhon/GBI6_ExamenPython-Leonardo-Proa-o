@@ -20,23 +20,23 @@ def mining_pubs(tipo):
     results = download_pubmed('Ecuador genomics') 
     
     
-    id_list = results['IdList']                                                  #separamos ids    
+    id_list = results['IdList']                                                  #separamos IDs    
     ids = ','.join(id_list)    
-    Entrez.email = 'your.email@example.com'
-    handle = Entrez.efetch(db='pubmed',rettype='medline',retmode='text',id=ids)  #rescatamos ducumentos por id
-    all_data = handle.read()                                                     #se lee la data
+    Entrez.email = 'leonardo.proano@est.ikiam.edu.ec'
+    handle = Entrez.efetch(db='pubmed',rettype='medline',retmode='text',id=ids)  #rescatamos ducumentos por cada ID
+    all_data = handle.read()                                                     #Revisamos la data
     
-    if(tipo == "DP"):#PMID y DP_year 
+    if(tipo == "DP"):                                    #PMID y DP_year 
         zipcodes = re.findall(r'PMID-.(.+)', all_data)
         zipcodes1 = re.findall(r'DP  -.(.+)', all_data)
         all_ = list(zip(zipcodes,zipcodes1))
         nom_colum = ['PMID','DP_year']
     else:
-        if(tipo == "AU"):#PMID y el num_auth
+        if(tipo == "AU"):                                #PMID y num_auth
             zipcodes = re.findall(r'PMID-.(.+)|(AU)  -|', all_data) 
             nom_colum = ['PMID','num_auth']
             
-        elif(tipo == "AD"):#country y el num_auth
+        elif(tipo == "AD"):                              #country y num_auth
             zipcodes = re.findall(r'PL  -.(.+)|(AU)  -|', all_data)
             nom_colum = ['country','num_auth']
         mira = list()
@@ -63,12 +63,16 @@ def mining_pubs(tipo):
     results = pd.DataFrame(all_,columns = nom_colum)             
     return results
 
-#seccion de ejecicion de codigo y envio de variables
-#id_list = results['IdList']          #separamos ids 
+#Aquí se enccuentra la sección de ejecución del codigo y envio de variables
+#id_list = results['IdList']          #separamos IDs 
+
 if __name__ == '__main__':
- #--------------------------Se ingresa la varaible tipo para iniciar---------------------------------------
+ #--------------------------Se ingresa la variable tipo para iniciar---------------------------------------
+    
     #resultado_final = mining_pubs("AU")  #Enviamos el tipo para el procesamiento ER (DP AU AD)  
+
 #---------------------------------------------------------------------------------------------------------
+  
     print("El nombre de la la funcion es:",download_pubmed.__name__ )
     print("Documentacion de la funcion :",download_pubmed.__doc__)
     print("____________________________________________________________________________________________________________________________")
