@@ -24,9 +24,9 @@ Memoria: 16384 MB RAM
 
 # Programas utilizados
 
-- Python 3.9.10 64-bit
+- Python 3.8.8
 
-- Bio (Entrez, SeqIO)
+- Bio (Entrez, SeqIO, Phylo)
 
 - pandas
 
@@ -40,7 +40,7 @@ Memoria: 16384 MB RAM
 
 # Explicación de la data utilizada
 
-- En el ejercicio 1, . 
+- En el ejercicio 1, creamos un archivo en formato .py . 
 - En el ejercicio 2, . 
 - En el ejercicio 3, . 
 - En el ejercicio 4, . 
