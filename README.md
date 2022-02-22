@@ -23,18 +23,20 @@ Procesador: Intel(R) Core(TM) i7-6700HQ CPU @ 2.60 GHz (8 CPUs)
 Memoria: 16384 MB RAM
 
 # Programas utilizados
-- Visual Studio Code
 
-- Python 3.8.8
+- Python 3.9.10 64-bit
 
-- Jupyter Notebook
+- Bio (Entrez, SeqIO)
 
-- Git Hub Desktop
+- pandas
 
-# Módulos y paquetes utilizados
+- numpy
 
-- 
-- 
+- re
+
+- csv
+
+- itertools
 
 # Explicación de la data utilizada
 
