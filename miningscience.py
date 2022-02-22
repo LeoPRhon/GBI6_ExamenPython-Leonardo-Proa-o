@@ -7,25 +7,39 @@ import numpy as np
 
 #Se define la función de download_pubmed para tener un dataframe con los ID de los artículos con una keyword específica
 def download_pubmed(keyword):
-    """"La funcion download_pubmed está encargada de recuperar la ID de los artículos científicos que esten relacionados con la palabra clave que se envió en la base de datos Pubmed """
+    """
+    Función que permite descargar los ids de PubMed utilizando ENTREZ de Biopython.
+    El parámtero es la keyword es el término de búsqueda.
+    """
+
     Entrez.email = 'leonardo.proano@est.ikiam.edu.ec'
-    handle = Entrez.esearch(db='pubmed',retmax=10**5 ,retmode='xml',term=keyword)
+    handle = Entrez.esearch(db='pubmed',retmax=1000000 ,retmode='xml',term=keyword)
     results = Entrez.read(handle)
+    handle.close()
     return results
 
 #Ahora, definimos la función mining_pubs    
-def mining_pubs(tipo):
-    """"La función de mining_pubs tiene la tarea de filtrar la data dependiendo de la variable (tipo) como DP AU o AD. Por otro lado, los datos  PMID para la extracción de archivos se obtienen gracias a la función download_pubmed, donde ecuentra los documentos exactos basados en su ID   """
-    # Uso del metodo download_pubmed
+def mining_pubs(tipo: str) -> pd.DataFrame :
+    """
+    Según el parámetro tipo, se descargan los ids de PubMed de la búsqueda:
+        Si el tipo es "DP" recupera el año de publicación del artículo. El retorno es un dataframe con el PMID y el DP_year.
+        Si el tipo es "AU" recupera el número de autores por PMID. El retorno es un dataframe con el PMID y el num_auth.
+        Si el tipo es "AD" recupera el conteo de autores por país. El retorno es un dataframe con el country y el num_auth.
+    
+    """
+
+    # Consutar la API de PubMed
     results = download_pubmed('Ecuador genomics') 
     
     
-    id_list = results['IdList']                                                  #separamos IDs    
+    id_list = results['IdList']                                                  #separamos IDs de los artículos
     ids = ','.join(id_list)    
     Entrez.email = 'leonardo.proano@est.ikiam.edu.ec'
-    handle = Entrez.efetch(db='pubmed',rettype='medline',retmode='text',id=ids)  #rescatamos ducumentos por cada ID
-    all_data = handle.read()                                                     #Revisamos la data
     
+    handle = Entrez.efetch(db='pubmed',rettype='medline',retmode='text',id=ids)  #Descargar los artículos
+    all_data = handle.read()
+    
+    # Se arma los data frame de acuerdo al tipo especificado
     if(tipo == "DP"):                                    #PMID y DP_year 
         zipcodes = re.findall(r'PMID-.(.+)', all_data)
         zipcodes1 = re.findall(r'DP  -.(.+)', all_data)
@@ -39,13 +53,14 @@ def mining_pubs(tipo):
         elif(tipo == "AD"):                              #country y num_auth
             zipcodes = re.findall(r'PL  -.(.+)|(AU)  -|', all_data)
             nom_colum = ['country','num_auth']
-        mira = list()
+        target = list()
         for x in zipcodes:
             if(x[0]!=''):
-                mira.append((x[0],''))
+                target.append((x[0],''))
             elif(x[1]!=''):
-                mira.append(('',x[1]))
-        zipcodes= mira       
+                target.append(('',x[1]))
+
+        zipcodes= target       
         lista_1 = list()
         lista_2 = list()
         va_c = 0
@@ -59,7 +74,8 @@ def mining_pubs(tipo):
             else:
                 va_c = va_c+1            
         all_ = list(zip(lista_1,lista_2))
-        
+
+    handle.close()    
     results = pd.DataFrame(all_,columns = nom_colum)             
     return results
 
