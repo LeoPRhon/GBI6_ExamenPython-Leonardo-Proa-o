@@ -66,10 +66,8 @@ Memoria: 16384 MB RAM
 
 - En el ejercicio 3, usamos la función mining_pubs para crear dataframes por los años, autores y países. Finalmente se muestra los dos primeros y los últimos en cada dataframe creado.
 
-- En el ejercicio 4, . 
+- En el ejercicio 4, se creó las gráficas de distribución normal, boxplot y nube de puntos sobre los diferentes artículos científicos sobre Ecuador genomics. 
 
-- En el ejercicio 5, . 
+- En el ejercicio 5, se interpretó los gráficos del ejercicio 4. 
 
-- En el ejercicio 6, . 
-
-- En el ejercicio 7, . 
+- En el ejercicio 6, se usó el Accession List y diferentes tipos de archivos como: .seq, .fasta y .gb. A través de diferentes librerías se buscó crear el árbol filogenético del mosntruo de Gila (Heloderma Suspectum) e interpretar las diferentes ramificaciones por variaciones génicas y su relación desde un único antecesor.
